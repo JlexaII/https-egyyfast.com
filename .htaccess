@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# Перенаправление конкретных URL на главную страницу
+Redirect 301 /aclutexas/hearne.wmv https://nmmstream.net/
+Redirect 301 /hrc/downloads/publications/tgtool.pdf https://nmmstream.net/
+Redirect 301 /azimuth/foreignexchange.mov https://nmmstream.net/
+Redirect 301 /hrc/downloads/meetup_docs/HRCActionGuide.pdf https://nmmstream.net/
+Redirect 301 /hrc/downloads/ad_campaigns/HRC_RollCall.pdf https://nmmstream.net/
+Redirect 301 /acs/gore.mp3 https://nmmstream.net/
+Redirect 301 /famlit/archive.html https://nmmstream.net/
+
+
+# Перенаправление с http на https, с учетом Cloudflare
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Перенаправление URL с параметрами на главную страницу без параметров
+RewriteCond %{REQUEST_URI} ^/ramgen/rff/130207/130207\.rm$ [NC]
+RewriteCond %{QUERY_STRING} ^start=00:00:00$ [NC,OR]
+RewriteCond %{QUERY_STRING} ^start=00:20:45$ [NC]
+RewriteRule ^ramgen/rff/130207/130207\.rm$ https://nmmstream.net/ [R=301,L,QSD]
+
