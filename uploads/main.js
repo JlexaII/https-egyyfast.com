@@ -2,8 +2,8 @@ console.log('Main.js at your service:)')
 
 const table_links = document.querySelectorAll(".table_link")
 
-for ( let link of table_links ) {
-    link.addEventListener('click', function(e){
+for (let link of table_links) {
+    link.addEventListener('click', function (e) {
         e.preventDefault()
 
         const blockID = this.getAttribute('data-href').replace('#', '')
@@ -11,49 +11,49 @@ for ( let link of table_links ) {
         window.scrollTo({
             behavior: 'smooth',
             top: document.getElementById(blockID).getBoundingClientRect().top - document.body.getBoundingClientRect().top - 70,
-         })
+        })
     })
 }
 
-if ( document.querySelector('.scrollTop') ) {
+if (document.querySelector('.scrollTop')) {
     document.querySelector('.scrollTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }))
 }
 
 
-function openCloseMenu(e){
+function openCloseMenu(e) {
     e.preventDefault()
     document.getElementById('mobileMenu').toggleAttribute('hidden')
     document.querySelector('.overlay').toggleAttribute('hidden')
 }
 
-if ( document.querySelector('.burger') ){
+if (document.querySelector('.burger')) {
     document.querySelector('.burger').addEventListener('click', openCloseMenu)
     document.querySelector('.close').addEventListener('click', openCloseMenu)
     document.querySelector('.overlay').addEventListener('click', openCloseMenu)
 }
 
-
+/* 
 for (let b of document.querySelectorAll('button:not(.apkClick):not(.slider-btn)')) {
-    b.addEventListener('click', function() {
+    b.addEventListener('click', function () {
         // Оставляем только перенаправление
         let link = 'ССЫЛКУ СЮДА';
         location.href = link;
     });
-}
+} */
 
 
 
 // Button android
-if (document.querySelector('.apkClick')){
-    
-    document.querySelector('.apkClick').addEventListener('click', function(){
-        location.href='#';
+if (document.querySelector('.apkClick')) {
+
+    document.querySelector('.apkClick').addEventListener('click', function () {
+        location.href = '#';
     })
-    
+
 }
 
 const handleScroll = () => {
-    if ( window.scrollY > 1000) {
+    if (window.scrollY > 1000) {
         document.querySelector('.scrollTop').style.opacity = '1';
     } else {
         document.querySelector('.scrollTop').style.opacity = '0';
@@ -62,15 +62,15 @@ const handleScroll = () => {
 
 window.addEventListener('scroll', handleScroll);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let promoCodeCopy = document.querySelector('.content-side__promocode-copy');
     let promoCodeButton = document.querySelector('.content-side__promocode-button');
-  
-    promoCodeButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      navigator.clipboard.writeText(promoCodeCopy.textContent);
+
+    promoCodeButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        navigator.clipboard.writeText(promoCodeCopy.textContent);
     });
-  });
+});
 
 let thirdScroll = false
 let halfScroll = false
@@ -118,10 +118,12 @@ setInterval(() => {
     showSlide();
 }, 6000);
 
+document.addEventListener("DOMContentLoaded", function() {
+    let faqItems = document.querySelectorAll(".faq-item");
 
-
-document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", function() {
-        this.parentElement.classList.toggle("active");
+    faqItems.forEach(item => {
+        item.querySelector(".faq-question").addEventListener("click", function() {
+            item.classList.toggle("active");
+        });
     });
 });

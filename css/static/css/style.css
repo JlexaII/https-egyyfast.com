@@ -2340,7 +2340,7 @@ i {
 
 .header .headerInner .menu a {
   margin-right: 40px;
-  color: #fff;
+  color: #8392a1;
   font-size: 16px;
   font-weight: 500;
   line-height: normal;
@@ -2356,7 +2356,9 @@ i {
 }
 
 .header .headerInner .menu a.active {
-  color: #0563a6;
+  color: #ffffff;
+  font-weight: bold;
+
 }
 
 .buttons .logButton {
@@ -3218,6 +3220,7 @@ body {
 .slider {
   position: relative;
   max-width: 1200px;
+  width: 100%;
   height: 400px;
   margin: 60px auto -60px;
   /* Увеличен отступ сверху до 60px */
@@ -3228,6 +3231,7 @@ body {
   display: flex;
   transition: transform 0.5s ease-in-out;
   flex-direction: row-reverse;
+  width: 100%;
 }
 
 .slider-wrapper img {
@@ -3236,6 +3240,62 @@ body {
   object-fit: cover;
   flex-shrink: 0;
   flex-grow: 0;
+}
+
+.slide {
+  flex: 0 0 100%;
+  position: relative;
+  text-align: right;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  color: white;
+  text-align: right;
+}
+
+.slide-content h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.slide-content p {
+  font-size: 18px;
+
+}
+
+.cta-button {
+  background-color: #67c23a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #58a32a;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
 }
 
 .bonus-text {
@@ -3414,45 +3474,68 @@ body {
   }
 }
 
+h2 {
+  text-align: center;
+}
+
 .faq-container {
+  font-family: Arial, sans-serif;
+
+  direction: rtl;
+  text-align: right;
+  padding: 20px;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  /* Два столбца */
   gap: 10px;
-  width: 70%;
+  max-width: 800px;
   margin: auto;
 }
 
 .faq-item {
-  background-color: #276AA5;
-  border-radius: 5px;
+  background: #222;
+  border-radius: 8px;
   overflow: hidden;
 }
 
 .faq-question {
-  width: 100%;
-  background-color: #7EAC2F;
-  color: white;
-  border: none;
+  background: #333;
   padding: 15px;
-  font-size: 18px;
-  text-align: right;
   cursor: pointer;
-  outline: none;
+  font-weight: bold;
+  position: relative;
+}
+
+.faq-question::after {
+  content: "▼";
+  position: absolute;
+  left: 15px;
 }
 
 .faq-answer {
   display: none;
   padding: 15px;
-  text-align: right;
-  background-color: #1D4268;
+  background: #444;
 }
 
-.faq-item.active .faq-answer {
+.faq-list {
+  margin-top: 10px;
+}
+
+.faq-step {
+  padding: 5px 0;
+  border-bottom: 1px solid #555;
+}
+
+.faq-step:last-child {
+  border-bottom: none;
+}
+
+.active .faq-answer {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .faq-container {
-      grid-template-columns: 1fr;
-  }
+.active .faq-question::after {
+  content: "▲";
 }
