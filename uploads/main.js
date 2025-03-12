@@ -120,32 +120,14 @@ setInterval(() => {
 
 function myFunction(button) {
     let dropdown = button.nextElementSibling;
-    
-    // Закрываем все остальные выпадающие списки
-    document.querySelectorAll(".dropdown-content").forEach((menu) => {
+
+    // Закрываем другие списки
+    document.querySelectorAll(".dropdown-content").forEach(menu => {
         if (menu !== dropdown) {
-            menu.classList.remove("show", "open-up");
+            menu.classList.remove("show");
         }
     });
 
-    // Определяем положение списка
-    let rect = dropdown.getBoundingClientRect();
-    let windowHeight = window.innerHeight;
-
-    if (rect.bottom > windowHeight) {
-        dropdown.classList.add("open-up"); // Открываем вверх
-    } else {
-        dropdown.classList.remove("open-up"); // Открываем вниз
-    }
-
+    // Переключаем текущий список
     dropdown.classList.toggle("show");
 }
-
-// Закрываем меню при клике вне списка
-window.onclick = function (event) {
-    if (!event.target.matches('.dropbtn')) {
-        document.querySelectorAll(".dropdown-content").forEach((menu) => {
-            menu.classList.remove("show", "open-up");
-        });
-    }
-};
