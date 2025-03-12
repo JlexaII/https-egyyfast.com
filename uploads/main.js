@@ -118,12 +118,34 @@ setInterval(() => {
     showSlide();
 }, 6000);
 
-document.addEventListener("DOMContentLoaded", function() {
-    let faqItems = document.querySelectorAll(".faq-item");
-
-    faqItems.forEach(item => {
-        item.querySelector(".faq-question").addEventListener("click", function() {
-            item.classList.toggle("active");
-        });
+function myFunction(button) {
+    let dropdown = button.nextElementSibling;
+    
+    // Закрываем все остальные выпадающие списки
+    document.querySelectorAll(".dropdown-content").forEach((menu) => {
+        if (menu !== dropdown) {
+            menu.classList.remove("show", "open-up");
+        }
     });
-});
+
+    // Определяем положение списка
+    let rect = dropdown.getBoundingClientRect();
+    let windowHeight = window.innerHeight;
+
+    if (rect.bottom > windowHeight) {
+        dropdown.classList.add("open-up"); // Открываем вверх
+    } else {
+        dropdown.classList.remove("open-up"); // Открываем вниз
+    }
+
+    dropdown.classList.toggle("show");
+}
+
+// Закрываем меню при клике вне списка
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        document.querySelectorAll(".dropdown-content").forEach((menu) => {
+            menu.classList.remove("show", "open-up");
+        });
+    }
+};

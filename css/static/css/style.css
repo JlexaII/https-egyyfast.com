@@ -2560,7 +2560,7 @@ i {
   right: 0%;
   display: block;
   z-index: 5;
-  background: linear-gradient(135deg, #009A3F 0%, #009A3F 100%);
+  background: linear-gradient(135deg, #7EAC2F 0%, #81b22e 100%);
   width: 100%;
   min-height: 100vh;
   padding: 10px;
@@ -3474,68 +3474,73 @@ body {
   }
 }
 
-h2 {
-  text-align: center;
-}
-
 .faq-container {
-  font-family: Arial, sans-serif;
-
-  direction: rtl;
-  text-align: right;
-  padding: 20px;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* Два столбца */
-  gap: 10px;
-  max-width: 800px;
+  max-width: 600px;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Отступы между элементами */
+  justify-content: space-between;
 }
 
-.faq-item {
-  background: #222;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.faq-question {
-  background: #333;
-  padding: 15px;
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
   cursor: pointer;
-  font-weight: bold;
+  width: 100%;
+  text-align: right; /* Для арабского текста */
+  border-radius: 5px;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
   position: relative;
+  width: 48%; /* Два элемента в строке */
 }
 
-.faq-question::after {
-  content: "▼";
-  position: absolute;
-  left: 15px;
-}
-
-.faq-answer {
+.dropdown-content {
   display: none;
-  padding: 15px;
-  background: #444;
+  position: absolute;
+  background-color: #2781a1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
-.faq-list {
-  margin-top: 10px;
+/* Открываем вверх, если нет места вниз */
+.open-up {
+  bottom: 100%;
+  top: auto;
 }
 
-.faq-step {
-  padding: 5px 0;
-  border-bottom: 1px solid #555;
-}
-
-.faq-step:last-child {
-  border-bottom: none;
-}
-
-.active .faq-answer {
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
   display: block;
 }
 
-.active .faq-question::after {
-  content: "▲";
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+/* Адаптация для мобильных (менее 600px) */
+@media (max-width: 600px) {
+  .dropdown {
+    width: 100%; /* Один элемент в строке */
+  }
 }
