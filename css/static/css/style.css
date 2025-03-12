@@ -2255,7 +2255,7 @@ i {
 }
 
 .footer .scrollTop {
-  background: #009A3F;
+  background: #7EAC2F;
   /* Обновленный цвет фона */
   box-shadow: 0px 0px 12px 0px rgba(173, 0, 255, 0.26);
   width: 30px;
@@ -2312,7 +2312,6 @@ i {
   left: 0;
   width: 100%;
   z-index: 10;
-  padding: 0;
 }
 
 .header .headerInner {
@@ -2560,7 +2559,7 @@ i {
   right: 0%;
   display: block;
   z-index: 5;
-  background: linear-gradient(135deg, #7EAC2F 0%, #81b22e 100%);
+  background: linear-gradient(135deg, #1D4268 0%, #153758 100%);
   width: 100%;
   min-height: 100vh;
   padding: 10px;
@@ -3269,11 +3268,10 @@ body {
 
 .slide-content p {
   font-size: 18px;
-
 }
 
 .cta-button {
-  background-color: #67c23a;
+  background-color: #7EAC2F;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -3283,7 +3281,7 @@ body {
 }
 
 .cta-button:hover {
-  background-color: #58a32a;
+  background-color: #56771d;
 }
 
 .slider-btn {
@@ -3352,14 +3350,59 @@ body {
     height: auto;
   }
 
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
   .slider {
     width: 100%;
     height: auto;
     padding-top: 10px !important;
   }
+
+  .slide-content h2 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .slide-content p {
+    font-size: 9px;
+  }
+
+  .slider-btn {
+
+    top: 50%;
+
+    padding: 12px;
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 768px) {
+  .cta-button {
+    padding: 8px 16px;
+    font-size: 8px;
+  }
+
+  .slide-content h2 {
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .slide-content p {
+    font-size: 6px;
+  }
+
+  .slide-content {
+    position: absolute;
+    top: 40%;
+    right: 5%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: right;
+  }
+
   .slider {
     width: 100%;
     height: auto;
@@ -3472,6 +3515,35 @@ body {
     align-items: center;
     width: 100%;
   }
+
+  .slide-content {
+    margin: 3px 0; /* Еще сильнее уменьшаем расстояние на мобильных */
+        padding: 5px;
+   }
+
+  .slide-content h2 {
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px;
+  }
+
+  .slide-content p {
+    font-size: 6px;
+    padding: 0;
+
+  }
+
+  .slide {
+  text-align: right;
+    padding: 2px;
+  }
+
+  .cta-button {
+    padding: 4px 9px;
+    font-size: 8px;
+    /* width: 100%; */
+    /* Растянем кнопку по ширине */
+  }
 }
 
 .faq-container {
@@ -3492,7 +3564,8 @@ body {
   border: none;
   cursor: pointer;
   width: 100%;
-  text-align: right; /* Арабский текст */
+  text-align: right;
+  /* Арабский текст */
   border-radius: 5px;
 }
 
@@ -3504,8 +3577,10 @@ body {
 
 /* Обертка вопроса */
 .dropdown {
-  width: 48%; /* Два элемента в строке */
-  position: relative; /* Для правильного размещения */
+  width: 48%;
+  /* Два элемента в строке */
+  position: relative;
+  /* Для правильного размещения */
 }
 
 .dropdown-content {
@@ -3516,12 +3591,14 @@ body {
   margin-top: 5px;
   border-radius: 5px;
   width: 100%;
-  position: relative; /* Вместо absolute */
+  position: relative;
+  /* Вместо absolute */
 }
 
 .dropdown-content.show {
   display: block;
-  position: relative; /* Оставляем статичное позиционирование */
+  position: relative;
+  /* Оставляем статичное позиционирование */
 }
 
 /* Для мобильных: список идет в один ряд */
@@ -3530,8 +3607,9 @@ body {
     width: 100%;
   }
 
-  .faq-container {   
-    overflow-y: auto; 
-    padding-bottom: 100px; /* Отступ для нижнего меню */
+  .faq-container {
+    overflow-y: auto;
+    padding-bottom: 100px;
+    /* Отступ для нижнего меню */
   }
 }
